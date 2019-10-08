@@ -45,18 +45,23 @@ class Song
     self.all.sort_by {|song| song.name}
   end
   
-  def self.new_from_filename(song)
-    artists_name = song.split(" - ")[0]
-    song_name = song.split(" - ")[1].split(".")[0]
+  def self.new_from_filename(filename)
+    artists_name = filename.split(" - ")[0]
+    song_name = filename.split(" - ")[1].split(".")[0]
     song = self.new
     song.name = song_name
     song.artist_name = artists_name
     song
   end
   
-  def self.create_from_filename
-  
-  
+  def self.create_from_filename(filename)
+    artists_name = filename.split(" - ")[0]
+    song_name = filename.split(" - ")[1].split(".")[0]
+    song = self.new
+    song.name = song_name
+    song.artist_name = artists_name
+    song.save
+    song
   end
 
 end
